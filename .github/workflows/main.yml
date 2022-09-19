@@ -1,0 +1,100 @@
+# Exercici 1
+#L'exercici consisteix a crear un programa que et classifiqui una variable numèrica en funció de l’escala Suspès/Aprovat/Notable/Excel·lent.
+#Recorda que Suspès < 5, Aprovat > 5 i < 7, Notable > 7 i < 9 i Excel·lent > 9.
+
+import random as rd
+x = rd.randint(1,10)
+print(x)
+
+if x < 5: 
+    print("Supès")
+elif 5 <= x <7:
+    print("Aprovat")
+elif 7<= x < 9:
+    print("Notable")
+else:
+    print("Excelent")
+
+#_____________________________________
+
+# Exercici 2
+#Utilitzant el següent tutorial crea un programa que et pregunti dos números. T’ha de mostrar un missatge dient si el primer és més gran, el segon és més gran o són iguals.
+#->Programiz: Python Input, Output and Import
+
+x= input("Introdueix X: ")
+y = input("Introdueix Y: ")
+
+if x>y:
+    print("X és major que Y")
+elif y>x:
+    print("Y és major que X")
+else: 
+    print("X i Y són iguals")
+    
+#____________________________________
+
+#- Exercici 3
+#Crea un programa que et pregunti el teu nom, i et demani un número. Si el número és 0, hauria de mostrar un missatge d’error. En cas contrari, hauria de mostrar el nom repetit tants cops com indiqui el número. Per exemple, “Joan Joan Joan”.
+
+x= input("Introdueix el teu nom: ")
+y = int(input("Introdueix un número, no pot ser 0: "))
+if y == 0:
+    print("El número no pot ser 0, torna-ho a intentar")
+else: 
+    print(x*y)
+
+#____________________________________
+
+#- Exercici 4
+#Crea un programa que donada una llista qualsevol, et digui si és simètrica o no. Si ho és, que et digui quants elements té.
+
+#_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+# La sèrie amb què treballem (inventada) és: 
+l1 = [1,3,5,3,1]
+
+# Definim una nova sèrie, que és igual a l'anterior però amb els elements endreçats a la inversa:
+lon = len(l1) -1
+l2 = []
+while (lon >= 0):
+  l2.append(l1[lon])
+  lon = lon - 1
+    
+# Transformem les sèries amb pandas
+import pandas as pd
+l3 = pd.Series(l1)
+l4 = pd.Series(l2)
+
+# Comparem les 2 sèries, si són iguals és que la sèrie inicial és simètrica:
+if l3.equals(l4) == True:
+    print("La sèrie és simètrica i té ", len(l1), " elements")
+    
+else:
+    print("La sèrie no és simètrica")
+
+
+#print(l1)    
+#print(l2)
+#print(l3)
+#print(l4)
+
+#____________________________________
+
+#- Exercici 5
+#Crea un programa que donada una llista, et digui quants números coincideixen amb la seva posició. Per exemple [3,4,2,0,2,3,6] el 2 i el 6 coincideixen.
+
+l1 = [0,3,5,3,4]   
+
+# Definim una nova sèrie, formada pels índex de la sèrie anterior:
+y = (len(l1))
+x = range(y)
+l2 = list(x)
+
+
+# Definim una variable en la que es faci la suma dels valors en els que l'índex sigui igual al valor de la sèrie. 
+z = (sum(a==b for a, b in zip(l1,l2)))
+
+#Imprimim el resultat:
+print(z)
+ 
+#____________________________________
